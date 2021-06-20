@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial=1.0">
+        <link rel="stylesheet" href="../css/styles.css" charset="utf-8">
+        <title>Sign up</title>
+    </head>
+<body>
+    <h1>Sign up</h1>
+    <hr>
+    <h2><%- include ('./partials/messages') %></h2>
+    
+    <form action="/register" method="POST">
+        <ul>
+        <li>
+            <label for="userid"><strong>User ID :</strong></label>
+            <input type="text" name="userid", placeholder="Enter UserID" />
+        </li>
+        <li>
+            <label for="password"><strong>Password :</strong></label>
+            <input type="password" name="password", placeholder="Enter password" />
+        </li>
+        <li>
+            <label for="password2"><strong>Confirm :</strong></label>
+            <input type="password" name="password2", placeholder="Confirm password" />
+        </li>
+        <li>
+            <label for="email"><strong>Email :</strong></label>
+            <input type="email" name="email", placeholder="Enter email" />
+        </li>
+        </ul>
+
+        <br><input type="submit" value="Create"></br>
+    </form>
+    <form action="/">
+        <br><input type="submit" value="Back"></br>
+    </form>
+</body>
+
+</html>

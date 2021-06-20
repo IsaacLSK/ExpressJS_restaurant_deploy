@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial=1.0">
+    <link rel="stylesheet" href="../css/styles.css" charset="utf-8">
+    <title>Login</title>
+</head>
+
+<body>
+    <h1>Login</h1>
+    <hr>
+    <h2>
+        <%- include ('./partials/messages') %>
+    </h2>
+    Access using the following <strong>ACCOUNTS</strong> without password or
+    <a href=/registerForm> <strong>SIGN UP</strong></a>
+    <br>
+    <br>
+    <form action="/login" method="POST">
+        <ul>
+            <li>
+                <label for="userid"><strong>User ID:</strong></label>
+                <input type="text" name="userid", placeholder="Enter UserID" />
+            </li><br>
+            <li>
+            <label for="password"><strong>Password:</strong></label>
+            <input type="password" name="password", placeholder="Enter password" />
+            </li></br>
+            <li>
+                <input type="submit" value="Login">
+            </li>
+        </ul>
+
+    </form>
+
+</body>
+
+</html>

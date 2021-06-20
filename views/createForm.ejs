@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial=1.0">
+    <link rel="stylesheet" href="../css/styles.css" charset="utf-8">
+    <title>Create</title>
+</head>
+
+<body>
+    <h1>Create Restaurant</h1>
+    <hr>
+    <h2>
+        <%- include ('./partials/messages') %>
+    </h2>
+    <form action="/create" method="POST" enctype="multipart/form-data">
+        <label><strong>--Info--</strong></label>
+        <ul><br>
+            <li>
+                <label for="name"><strong>Name :</strong></label>
+                <input type="text" name="name" />
+            </li>
+            <li>
+                <label for="borough"><strong>Borough :</strong></label>
+                <input type="text" name="borough" />
+            </li>
+            <li>
+                <label for="cuisine"><strong>Cuisine :</strong></label>
+                <input type="text" name="cuisine" />
+            </li>
+        </ul><br>
+
+        <label><strong>--Address--</strong></label>
+        <ul><br>
+            <li>
+                <label for="street"><strong>Street :</strong></label>
+                <input type="text" name="street" />
+            </li>
+            <li>
+                <label for="building"><strong>Building :</strong></label>
+                <input type="text" name="building" />
+            </li>
+            <li>
+                <label for="zipcode"><strong>Zipcode :</strong></label>
+                <input type="text" name="zipcode" />
+            </li>
+            <li>
+                <label for="coord_lat"><strong>Latitude :</strong></label>
+                <input type="text" name="coord_lat" />
+            </li>
+            <li>
+                <label for="coord_lon"><strong>Longitude :</strong></label>
+                <input type="text" name="coord_lon" />
+            </li>
+        </ul><br>
+
+        <label><strong>--Detail--</strong></label>
+        <ul><br>
+            <li>
+                <label for="filetoupload"><strong>Photo :</strong></label>
+                <input type="file" name="filetoupload" />
+            </li>
+            <li>
+                <label for="score"><strong>Score :</strong></label>
+                <input type="number" name="score" value="1" min="1" max="10" />
+            </li>
+        </ul>
+
+        <br><input type="submit" value="Create"></br>
+    </form>
+
+    <form action="/">
+        <br><input type="submit" value="Back"></br>
+    </form>
+
+</body>
+
+</html>

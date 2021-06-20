@@ -1,0 +1,63 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial=1.0">
+    <link rel="stylesheet" href="../css/styles.css" charset="utf-8">
+    <title>Restaurant</title>
+    <h1>Restaurant sharing system</h1>
+    Hello ! <strong><%=userid%></strong>
+    <hr>
+
+</head>
+<body>
+    <form action="/logout">
+        <input type="submit" value="Logout">
+    </form>
+
+    <form action="/createDoc">
+        <input type="submit" value="Create Restaurant">
+    </form>
+
+    <form action="/index">
+        <input type="submit" value="Search Restaurant"><br>
+
+        <div class="search_categories">
+            <div class="select">
+        <select name="restau" id="restau">
+            <optgroup label="Select Detail">
+                
+                <option value="name">Name</option>
+                <option value="borough">Borough</option>
+                <option value="cuisine">Cuisine</option>
+           
+            </optgroup>
+        </select>
+        </div>
+    </div>
+    <%if (typeof cri != 'undefined') {%>
+    <%if (cri == 'name'){%>
+                <h3> Total of <%=therest.length%> document(s) in "Name" is found ...</h3>
+                <%for (let i in therest){%>
+                <li><a href=/find?_id=<%=therest[i]._id%>> <%=therest[i].name%></a></li>
+                <%}%>
+    <%}%>
+
+    <%if (cri == 'borough'){%>
+                <h3> Total of <%=therest.length%> document(s) in "Borough" is found ...</h3>
+                <h4> *(Empty) means it really empty in database, not Error</h4>
+                <%for (let i in therest){%>
+                <li><a href=/find?_id=<%=therest[i]._id%>> <%- therest[i].borough.length != '' ? therest[i].borough : '(Empty)' %></a></li>
+                <%}%>
+    <%}%>
+
+    <%if (cri == 'cuisine'){%>
+                <h3> Total of <%=therest.length%> document(s) in "Cuisine" is found ...</h3>
+                <h4> *(Empty) means it really empty in database, not Error</h4>
+                <%for (let i in therest){%>
+                <li><a href=/find?_id=<%=therest[i]._id%>> <%- therest[i].cuisine.length != '' ? therest[i].cuisine : '(Empty)' %></a></li>
+                <%}%>
+    <%}}%>
+</form>
+</body>
+
+</html>

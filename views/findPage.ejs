@@ -1,0 +1,59 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial=1.0">
+    <link rel="stylesheet" href="../css/styles.css" charset="utf-8">
+    <title>Read</title>
+</head>
+<body>
+    <h1>Restaurant Detail</h1>
+    <hr>
+        <% if(docs[0].photo != null && docs[0].photo.length > 0) {%>
+        <br><img src="data:<%=docs[0].photo_mimetype%>;base64, <%=docs[0].photo%>"></br>
+
+        <% }else{ %>
+        <br>Photo: No photo is included</br>
+        <% } %>
+
+        <br><b>--Information--</b><br/>
+        <br>Name : <%=docs[0].name%></br>
+        <br>Borough : <%=docs[0].borough%></br>
+        <br>Cuisine : <%=docs[0].cuisine%></br>
+
+        <br><b>--Address--</b><br/>
+        <br>Street : <%=docs[0].address.street%> </br>
+        <br>Building : <%=docs[0].address.building%></br>
+        <br>Zipcode : <%=docs[0].address.zipcode%></br>
+        <br>Coordinate : [<%=docs[0].address.coord[0].coord_lat%> , <%=docs[0].address.coord[0].coord_lon%>]</br>
+ 
+        <br><b>--Detail--</b></br>
+        <br>Grades : </br>
+        
+        <% let rated = false %>
+        <%for (let i = 0; i<docs[0].grades.length; i++){%>
+            <li><%=i+1%>:  [Score: <%=docs[0].grades[i].score%>, By: <%=docs[0].grades[i].user%>]</li>
+           <% if (docs[0].grades[i].user == session_userid){ %>
+               <% rated = true; %>
+           <% } %>
+        <% } %>
+
+
+        <br>Owner : <%=docs[0].owner%><br/>
+ 
+        <% if (docs[0].address.coord[0].coord_lat.length != '' && docs[0].address.coord[0].coord_lon.length != '') { %>
+            <br><a href=/leaflet?lat=<%=docs[0].address.coord[0].coord_lat%>&lon=<%=docs[0].address.coord[0].coord_lon%>> Map</a></br>
+        
+            <% } else{%>
+            <br>Map : No Coordinates ! No Map !</br>
+            <% } %>
+        
+        
+        <br><a href=/rateDoc?rated=<%=rated%>&_id=<%=docs[0]._id%>> Rate</a></br>
+        <br><a href=/updateDoc?owner=<%=docs[0].owner%>&_id=<%=docs[0]._id%>> Edit</a></br>
+        <br><a href=/delete?owner=<%=docs[0].owner%>&_id=<%=docs[0]._id%>> Delete</a></br>
+        <br><a href= /> Back</a></br>
+
+    
+</body>
+
+</html>

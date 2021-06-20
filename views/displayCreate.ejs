@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial=1.0">
+        <link rel="stylesheet" href="../css/styles.css" charset="utf-8">
+        <title>Created</title>
+    </head>
+<body>
+    <h1>Restaurant Created !</h1>
+    <hr>
+    <% if(doc.photo != null && doc.photo.length > 0) {%>
+    <br><img src="data:<%=doc.mimetype%>;base64, <%=doc.photo%>"></br>
+
+    <% }else{ %>
+    <br>Photo : No photo is included !</br>
+    <% } %>
+
+    <br><b>--Information--</b><br/>
+    <br>Name : <%=doc.name%></br>
+    <br>Borough : <%=doc.borough%></br>
+    <br>Cuisine : <%=doc.cuisine%></br>
+
+    <br><b>--Address--</b><br/>
+    <br>Street : <%=doc.street%></br>
+    <br>Building : <%=doc.building%></br>
+    <br>Zipcode : <%=doc.zipcode%></br>
+    <br>Coordinate : [<%=doc.coord_lat%> , <%=doc.coord_lon%> ]</br>
+    
+    <br><b>--Detail--</b><br/>
+    <br>Grades : [Score: <%=doc.score%>,  By: <%=doc.owner%>]</br>
+    <br>Owner : <%=doc.owner%></br>
+
+    <% if (doc.coord_lat.length != '' && doc.coord_lon.length != '') { %>
+    <br><a href=/leaflet?lat=<%=doc.coord_lat%>&lon=<%=doc.coord_lon%>> Map</a></br>
+
+    <% } else{%>
+    <br>Map : No Coordinates ! No Map !</br>
+    <% } %>
+
+    <br><a href= /> Back</a></br>
+
+</body>
+
+</html>

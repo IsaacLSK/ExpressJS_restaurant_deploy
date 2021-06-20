@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial=1.0">
+        <link rel="stylesheet" href="../css/styles.css" charset="utf-8">
+        <title>Update</title>
+    </head>
+<body>
+    <ul>
+        <h1>Restaurant Updated !</h1>
+        <hr>
+
+        <% if(criteria.photo != null && criteria.photo.length > 0) {%>
+            <br><img src="data:<%=criteria.mimetype%>;base64, <%=criteria.photo%>"></br>
+   
+            <% }else{ %>
+                <br>Photo : No photo is included</br>
+                <% } %>
+
+
+        <br><b>--Information--</b><br/>
+        <br>Name : <%=criteria.name%></br>
+        <br>Borough : <%=criteria.borough%></br>
+        <br>Cuisine : <%=criteria.cuisine%></br>
+
+        <br><b>--Address--</b><br/>
+        <br>Street : <%=criteria.street%></br>
+        <br>Building : <%=criteria.building%></br>
+        <br>Zipcode : <%=criteria.zipcode%></br>
+        <br>Coordinate (lat.) : <%=criteria.coord_lat%></br>
+        <br>Coordinate (lon.) : <%=criteria.coord_lon%></br>
+
+        <% if (criteria.coord_lat.length != '' && criteria.coord_lon.length != '') { %>
+            <br><a href=/leaflet?lat=<%=criteria.coord_lat%>&lon=<%=criteria.coord_lon%>> Map</a></br>
+        
+            <% } else{%>
+            <br>Map : No Coordinates ! No Map !</br>
+            <% } %>
+
+        
+        <br><a href= /> Back</a></br>
+
+    </ul>
+</body>
+
+</html>

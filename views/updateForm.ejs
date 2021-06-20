@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial=1.0">
+    <link rel="stylesheet" href="../css/styles.css" charset="utf-8">
+    <title>Update</title>
+</head>
+
+<body>
+    <h1>Update Restaurant</h1>
+    <hr>
+    <h2>
+        <%- include ('./partials/messages') %>
+    </h2>
+    <form action="/update" method="POST" enctype="multipart/form-data">
+
+        <% if(docs[0].photo !=null && docs[0].photo.length> 0) {%>
+            <br><img src="data:<%=docs[0].photo_mimetype%>;base64, <%=docs[0].photo%>"></br>
+            <input type="hidden" name="filetoupload_backup" value=<%=docs[0].photo%>>
+            <input type="hidden" name="mimetype_backup" value=<%=docs[0].photo_mimetype%>>
+
+            <% }else{ %>
+                <br>Photo : No photo is included</br>
+                <% } %>
+
+                    <label><strong>--Info--</strong></label>
+                    <ul><br>
+                        <li>
+                            <label for="name"><strong>Name :</strong></label>
+                            <input type="text" name="name" value="<%=docs[0].name%>">
+                        </li>
+                        <li>
+                            <label for="borough"><strong>Borough :</strong></label>
+                            <input type="text" name="borough" value="<%=docs[0].borough%>">
+                        </li>
+                        <li>
+                            <label for="cuisine"><strong>Cuisine :</strong></label>
+                            <input type="text" name="cuisine" value="<%=docs[0].cuisine%>">
+                        </li>
+                    </ul><br>
+
+                    <label><strong>--Address--</strong></label>
+                    <ul><br>
+                        <li>
+                            <label for="street"><strong>Street :</strong></label>
+                            <input type="text" name="street" value="<%=docs[0].address.street%>">
+                        </li>
+                        <li>
+                            <label for="building"><strong>Building :</strong></label>
+                            <input type="text" name="building" value="<%=docs[0].address.building%>">
+                        </li>
+                        <li>
+                            <label for="zipcode"><strong>Zipcode :</strong></label>
+                            <input type="text" name="zipcode" value=<%=docs[0].address.zipcode%> >
+                        </li>
+                        <li>
+                            <label for="coord_lat"><strong>Latitude :</strong></label>
+                            <input type="text" name="coord_lat" value=<%=docs[0].address.coord[0].coord_lat%> >
+                        </li>
+                        <li>
+                            <label for="coord_lon"><strong>Longitude :</strong></label>
+                            <input type="text" name="coord_lon" value=<%=docs[0].address.coord[0].coord_lon%> >
+                        </li>
+                    </ul><br>
+
+                    <label><strong>--Detail--</strong></label>
+                    <ul><br>
+                        <li>
+                            <label for="filetoupload"><strong>Photo :</strong></label>
+                            <input type="file" name="filetoupload" />
+                        </li>
+                    </ul>
+
+                    <input type="hidden" name="_id" value=<%=docs[0]._id%>>
+                    <input type="hidden" name="owner" value=<%=docs[0].owner%>>
+
+
+                    <br><input type="submit" value="Update">
+    </form>
+
+    <form action="/">
+        <input type="submit" value="Back">
+    </form>
+</body>
+
+</html>
