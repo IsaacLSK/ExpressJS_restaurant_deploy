@@ -1,4 +1,5 @@
 {
+    "homepage": "http://IsaacLSK.github.io/restaurant_deploy",
     "name": "server",
     "description": "Express",
     "author": "COMPS381F student",
@@ -27,7 +28,12 @@
     },
     "engine": "node >= 0.10.0",
     "scripts": {
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build",
         "start": "node server",
         "mon": "nodemon server"
+    },
+    "devDependencies": {
+        "gh-pages": "^3.2.2"
     }
 }
