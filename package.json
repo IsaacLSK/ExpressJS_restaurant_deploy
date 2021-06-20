@@ -28,8 +28,8 @@
     },
     "engine": "node >= 0.10.0",
     "scripts": {
-        "predeploy": "npm run build",
-        "deploy": "gh-pages -d build",
+        "predeploy": "npm run start",
+        "deploy": "gh-pages -d start",
         "start": "node server",
         "mon": "nodemon server"
     },
