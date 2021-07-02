@@ -2,7 +2,7 @@
 
 const assert = require('assert');
 const MongoClient = require('mongodb').MongoClient;
-const mongourl = 'mongodb+srv://isaaclai:l29815988@cluster0.gbpww.mongodb.net/test?retryWrites=true&w=majority';
+const mongourl = process.env.DATABASE_URL;
   
 
 const dbName = 'project';
